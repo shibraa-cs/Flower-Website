@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  background-image: url("webimages/banner.png");
+  background-position: center;
+  background-size: contain;
+}
+
+nav {
+  flex: 1;
+  text-align: center;
+}
+
+nav ul {
+  display: inline-block;
+  list-style-type: none;
+  padding-top: 100px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #902184;
+}
+
+.contain {
+  width: 350px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+h1 {
+  text-align: center;
+  color: #9a238e;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #9a238e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+  background: #7a1a6e;
+}
+
+.contain p {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+.contain p a {
+  color: #9a238e;
+  font-weight: bold;
+}
+
+.contain p a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background-color: #ABB0B8;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-info,
+.footer-social {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+}
+
+.footer-info h3,
+.footer-social h3 {
+  margin: 0;
+}
+
+.footer-info p,
+.footer-social ul {
+  margin: 10px 0;
+}
+
+.footer-social ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.footer-social li {
+  margin-right: 10px;
+}
+
+.footer-social img {
+  width: 30px;
+  height: auto;
+}
+
+.footer-bottom {
+  background-color: #ddd;
+  padding: 10px;
+  text-align: center;
+  color: #4C4E52;
+}

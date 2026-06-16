@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home - Eternal Flowers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="designhomepage.css"> 
+  <link rel="icon" type="image/x-icon" href="webimages/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<!-- Including logo,navigation bar and shopping cart -->
+<body>
+<div class="navbar">
+<div class="logo">
+<a href="homepage.html"> <img id="logo" src="webimages/logo.png" width="125px"> </a>
+</div>
+<nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+        <a href="shoppingcart.html">🛒 Cart</a>      
+</nav>
+</div>
+<!-- Background for home page-->
+
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px">Eternal Flowers</h1>
+    <p style="padding:15px">We are a new flower shop that offers a fresh new selection of floral gifts for every special occasion and every season</p>
+    <a href="products.html"><button>Shop Now</button></a>
+  </div>
+</div>
+<!-- Featured Products -->
+<div class="fproducts">
+<h2 style="padding:15px;"><i>Featured Products</i></h2>
+  <p style="padding:15px; color:#9a238e ;"> Introducing our exquisite collection of featured flower arrangements that are sure to captivate and enchant. 
+    From stunning bouquets bursting with vibrant blooms to elegant floral centerpieces that create a captivating ambiance, each featured product 
+    has been meticulously crafted to showcase the beauty and artistry of nature. Elevate any occasion with these carefully curated floral creations, 
+    perfect for expressing love, celebration, gratitude, or simply adding a touch of natural elegance to your surroundings. 
+    Discover our featured products and let the enchantment of flowers bloom in your life.
+  </p>
+<table>
+  <tr>
+    <th><img src="webimages/bd 1.jpg" width="300px"></th>
+    <th><img src="webimages/valentine 7.jpg" width="300px" height="377px"></th>
+    <th><img src="webimages/fun 5.jpg" width="300px" height="377px"></th>
+    <th><img src="webimages/grad 9.jpg" width="300px" height="377px"></th>
+  </tr>
+<tr>
+    <td>£20.00</td>
+    <td>£30.00</td>
+    <td>£35.00</td>
+    <td>£30.00</td>
+  </tr>
+<tr>
+<td> <button class="button button1" onclick="addToCart('Featured Bouquet 1', 20.00)">Buy Now!</button></td>
+<td> <button class="button button1" onclick="addToCart('Featured Bouquet 2', 30.00)">Buy Now!</button></td>
+<td> <button class="button button1" onclick="addToCart('Featured Bouquet 3', 35.00)">Buy Now!</button></td>
+<td> <button class="button button1" onclick="addToCart('Featured Bouquet 4', 30.00)">Buy Now!</button></td>
+</tr>
+</table>
+</div>
+
+</body>
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+      </div>
+      <div class="footer-info">
+        <h3>Contact Information</h3>
+        <p>123 Flower Street, City</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: info@eternalflowers.com</p>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <ul>
+          <li><a href="#"><img src="webimages/facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="webimages/twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="webimages/instagram.png" alt="Instagram"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Eternal Flowers. All rights reserved. | Designed by Shibraa Nawaz</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</html>

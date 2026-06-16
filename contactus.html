@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="webimages/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>Contact Us - Eternal Flowers</title>
+    <link rel="stylesheet" type="text/css" href="designcontactus.css">
+    
+    <style>
+        .contact-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 250px;
+        }
+        .contact-info h2 {
+            color: #9a238e;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .contact-info p {
+            color: #333 !important;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .contact-info strong {
+            color: #9a238e;
+        }
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        .contact-form h2 {
+            color: #9a238e;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .contact-form label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #9a238e;
+            outline: none;
+        }
+        .contact-form textarea {
+            resize: vertical;
+        }
+        .contact-form input[type="submit"] {
+            background: #9a238e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+            transition: background 0.3s;
+        }
+        .contact-form input[type="submit"]:hover {
+            background: #7a1a6e;
+        }
+        .contact-form input[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .contact-response {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .contact-response.success {
+            color: #27ae60;
+            background: #eafaf1;
+        }
+        .contact-response.error {
+            color: #e74c3c;
+            background: #fdedec;
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="homepage.html"> <img id="logo" src="webimages/logo.png" width="125px"> </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+        <a href="shoppingcart.html">🛒 Cart</a>      
+    </nav>
+</div>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size:50px">Contact Us</h1>
+        <p style="padding:15px">We'd love to hear from you! Get in touch with us.</p>
+    </div>
+</div>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>📍 Get in Touch</h2>
+        <p><strong>Address:</strong> 123 Flower Street, City</p>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p><strong>Email:</strong> info@eternalflowers.com</p>
+        <br>
+        <p><strong>Opening Hours:</strong></p>
+        <p>Monday - Friday: 9am - 6pm</p>
+        <p>Saturday: 10am - 4pm</p>
+        <p>Sunday: Closed</p>
+    </div>
+
+    <div class="contact-form">
+        <h2>✉️ Send us a Message</h2>
+        <form onsubmit="return sendMessage(event)">
+            <label for="contact-name">Your Name:</label>
+            <input type="text" id="contact-name" name="name" required>
+
+            <label for="contact-email">Your Email:</label>
+            <input type="email" id="contact-email" name="email" required>
+
+            <label for="contact-message">Message:</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+
+            <input type="submit" id="send-btn" value="Send Message">
+        </form>
+        <div id="contact-response" class="contact-response"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Information</h3>
+                <p>123 Flower Street, City</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@eternalflowers.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><img src="webimages/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="webimages/twitter.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="webimages/instagram.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Eternal Flowers. All rights reserved. | Designed by Shibraa Nawaz</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    function sendMessage(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+        const responseDiv = document.getElementById('contact-response');
+        const sendBtn = document.getElementById('send-btn');
+        
+        // Validate fields
+        if (!name || !email || !message) {
+            responseDiv.className = 'contact-response error';
+            responseDiv.textContent = 'Please fill in all fields.';
+            return false;
+        }
+        
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            responseDiv.className = 'contact-response error';
+            responseDiv.textContent = 'Please enter a valid email address.';
+            return false;
+        }
+        
+        // Show loading
+        sendBtn.disabled = true;
+        sendBtn.value = 'Sending...';
+        responseDiv.className = 'contact-response';
+        responseDiv.textContent = 'Preparing your message...';
+        
+        // Simulate sending (in real life, this would use a backend)
+        setTimeout(function() {
+            // Show success message
+            responseDiv.className = 'contact-response success';
+            responseDiv.innerHTML = '✅ Thank you, <strong>' + name + '</strong>! Your message has been sent.<br>We will get back to you at <strong>' + email + '</strong> shortly.';
+            
+            // Reset form
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-message').value = '';
+            
+            // Reset button
+            sendBtn.disabled = false;
+            sendBtn.value = 'Send Message';
+            
+            // Optional: Open email client with the message
+            const subject = encodeURIComponent('Enquiry from ' + name);
+            const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+            window.open('mailto:info@eternalflowers.com?subject=' + subject + '&body=' + body);
+            
+        }, 1500);
+        
+        return false;
+    }
+</script>
+
+</body>
+</html>

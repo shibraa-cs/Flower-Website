@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Eternal Flowers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="designhomepage.css">
+    <link rel="icon" type="image/x-icon" href="webimages/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .admin-header h1 {
+            color: #9a238e;
+            font-size: 28px;
+        }
+        .admin-header .admin-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .stat-card h3 {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #9a238e;
+        }
+        .admin-table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+        .admin-table th {
+            background: #9a238e;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        .admin-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .admin-table tr:hover {
+            background: #f9f9f9;
+        }
+        .admin-table .order-items {
+            font-size: 12px;
+            color: #666;
+        }
+        .admin-table .status-badge {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .status-badge.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-badge.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .back-btn {
+            background: #9a238e;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background: #7a1a6e;
+        }
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+        @media (max-width: 768px) {
+            .admin-table {
+                font-size: 12px;
+            }
+            .admin-table th, .admin-table td {
+                padding: 8px 10px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">
+        <a href="homepage.html"> <img id="logo" src="webimages/logo.png" width="125px"> </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+        <a href="shoppingcart.html">🛒 Cart</a>      
+    </nav>
+</div>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1 style="font-size:50px">🔐 Admin Dashboard</h1>
+        <p style="padding:15px">Manage users, view orders, and monitor activity.</p>
+    </div>
+</div>
+
+<div class="admin-container" id="admin-container">
+    <!-- Will be populated by JavaScript -->
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Contact Information</h3>
+                <p>123 Flower Street, City</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@eternalflowers.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#"><img src="webimages/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="webimages/twitter.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="webimages/instagram.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Eternal Flowers. All rights reserved. | Designed by Shibraa Nawaz</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // ===== ADMIN DASHBOARD =====
+
+    function displayAdminDashboard() {
+        const container = document.getElementById('admin-container');
+        const currentUser = getCurrentUser();
+        
+        // Check if user is admin
+        if (!currentUser || currentUser.role !== 'admin') {
+            container.innerHTML = `
+                <div style="text-align:center;padding:60px 20px;background:white;border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,0.05);">
+                    <h2 style="color:#e74c3c;">⛔ Access Denied</h2>
+                    <p style="color:#666;margin:20px 0;">You need admin privileges to view this page.</p>
+                    <a href="homepage.html" style="background:#9a238e;color:white;padding:12px 40px;border-radius:30px;text-decoration:none;">Return to Home</a>
+                </div>
+            `;
+            return;
+        }
+        
+        // Get all users
+        const users = getAllUsers();
+        const totalUsers = users.length;
+        
+        // Calculate stats
+        let totalOrders = 0;
+        let totalRevenue = 0;
+        let allOrders = [];
+        
+        users.forEach(user => {
+            if (user.orders) {
+                totalOrders += user.orders.length;
+                user.orders.forEach(order => {
+                    totalRevenue += order.total;
+                    allOrders.push({
+                        user: user.name,
+                        email: user.email,
+                        order: order
+                    });
+                });
+            }
+        });
+        
+        // Sort orders by date (newest first)
+        allOrders.sort((a, b) => {
+            return new Date(b.order.date) - new Date(a.order.date);
+        });
+        
+        // Build HTML
+        let ordersHtml = '';
+        if (allOrders.length === 0) {
+            ordersHtml = `<div class="no-data">No orders placed yet.</div>`;
+        } else {
+            ordersHtml = `
+                <table class="admin-table">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                    ${allOrders.map((item, index) => `
+                        <tr>
+                            <td>#${item.order.id || index + 1}</td>
+                            <td><strong>${item.user}</strong><br><small>${item.email}</small></td>
+                            <td class="order-items">${item.order.items.map(i => `${i.name} (x${i.quantity})`).join('<br>')}</td>
+                            <td>£${item.order.total.toFixed(2)}</td>
+                            <td>${item.order.date}</td>
+                            <td><span class="status-badge completed">${item.order.status || 'completed'}</span></td>
+                        </tr>
+                    `).join('')}
+                </table>
+            `;
+        }
+        
+        // User list
+        let userHtml = '';
+        users.forEach(user => {
+            const orderCount = user.orders ? user.orders.length : 0;
+            const isAdmin = user.email === 'admin@eternalflowers.com';
+            userHtml += `
+                <tr>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role || 'user'}</td>
+                    <td>${orderCount}</td>
+                    <td>${user.createdAt || 'N/A'}</td>
+                </tr>
+            `;
+        });
+        
+        container.innerHTML = `
+            <div class="admin-header">
+                <div>
+                    <h1>🔐 Admin Dashboard</h1>
+                    <span class="admin-badge">Admin Access</span>
+                </div>
+                <div>
+                    <a href="homepage.html" class="back-btn">🏠 Back to Home</a>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="number">${totalUsers}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <div class="number">${totalOrders}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <div class="number">£${totalRevenue.toFixed(2)}</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Avg Order Value</h3>
+                    <div class="number">£${totalOrders > 0 ? (totalRevenue / totalOrders).toFixed(2) : '0.00'}</div>
+                </div>
+            </div>
+            
+            <h2 style="color:#9a238e;margin:30px 0 15px;">📦 All Orders</h2>
+            ${ordersHtml}
+            
+            <h2 style="color:#9a238e;margin:30px 0 15px;">👥 All Users</h2>
+            <table class="admin-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Orders</th>
+                    <th>Joined</th>
+                </tr>
+                ${userHtml}
+            </table>
+        `;
+    }
+
+    // Load admin dashboard
+    displayAdminDashboard();
+</script>
+
+</body>
+</html>
