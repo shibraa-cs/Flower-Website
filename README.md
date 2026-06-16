@@ -3,7 +3,7 @@
 A fully functional e-commerce flower shop website with shopping cart, user authentication, order history, and admin dashboard.
 
 ## 🌸 Live Demo
-[View Live Website](https://shibraa-cs.github.io/flower-website/)
+[View Live Website](https://shibraa-cs.github.io/Flower-Website/)
 
 ## 🛠️ Technologies Used
 - HTML5
